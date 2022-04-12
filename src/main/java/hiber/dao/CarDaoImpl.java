@@ -26,4 +26,6 @@ public class CarDaoImpl implements CarDao {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("from Car", Car.class).getResultList();
     }
+
+
 }

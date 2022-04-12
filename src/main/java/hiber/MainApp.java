@@ -6,7 +6,6 @@ import hiber.model.User;
 import hiber.service.CarService;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -28,16 +27,16 @@ public class MainApp {
             System.out.println("First Name = " + user.getFirstName());
             System.out.println("Last Name = " + user.getLastName());
             System.out.println("Email = " + user.getEmail());
+            System.out.println("Car = " + user.getCar());
             System.out.println();
         }
 
-
         CarService carService = context.getBean(CarService.class);
 
-        carService.save(new Car("Car1", 1));
-        carService.save(new Car("Car2", 2));
-        carService.save(new Car("Car3", 3));
-        carService.save(new Car("Car4", 4));
+        carService.save(new Car("Car5", 5));
+        carService.save(new Car("Car6", 6));
+        carService.save(new Car("Car7", 7));
+        carService.save(new Car("Car8", 8));
 
         List<Car> cars = carService.findAll();
         for (Car car : cars) {
@@ -46,6 +45,8 @@ public class MainApp {
             System.out.println("Series = " + car.getSeries());
             System.out.println();
         }
+
+        System.out.println(userService.getUserFromCar("Car5", 5));
 
         context.close();
     }
